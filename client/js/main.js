@@ -17,7 +17,7 @@ app.config(['$routeProvider', function($routeProvider){
 		})
 		.when('/newpost', {
 			controller: 'post.controller.js',
-			templateUrl: 'views/newposts.html'
+			templateUrl: 'views/newpost.html'
 		})
 		.otherwise({
 			redirectTo: '/'
