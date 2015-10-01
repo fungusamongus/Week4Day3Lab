@@ -5,7 +5,14 @@ app.controller('blog.controller.js', ['$scope','$location','ParseData', function
 	$scope.newPost = function (view) { 
 		$location.path(view)
 	}
-	ParseData.getItems().then(function(data) {
+	
+	ParseData.query().$promise.then(function (data){
+		$scope.posts = data.results;
+		 
+	 })
+	 
+	/*ParseData.query().then(function(data) {
+
 		for (var i = 0; i < data.results.length; i++) {
 			var post = {
 				author: data.results[i].author,
@@ -17,7 +24,7 @@ app.controller('blog.controller.js', ['$scope','$location','ParseData', function
 		}
 		}).catch(function() {
 			alert('error');
-		});
+		});*/
 	
 	
 	}]);

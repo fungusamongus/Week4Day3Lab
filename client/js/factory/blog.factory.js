@@ -2,8 +2,8 @@
 
 
 
-app.factory('ParseData', ['$http', function($http) {
-	var ParseFactory = {};
+app.factory('ParseData', ['$http','$resource', function($http, $resource) {
+	/*var ParseFactory = {};
     
     ParseFactory.getItems = function() {
         return $http.get('https://api.parse.com/1/classes/BlogPosts/', { 
@@ -26,7 +26,28 @@ app.factory('ParseData', ['$http', function($http) {
             console.log(err);
         })
     }
-    return ParseFactory;
+    return ParseFactory;*/
+    
+    var ParseFactory = $resource('https://api.parse.com/1/classes/BlogPosts',{},
+     {
+        'query': {
+            headers: {
+               'X-Parse-Application-Id':'8k7LXICOqCkunJ8L4dVgfnRo4UtTNvhX10FeOwDy',
+               'X-Parse-REST-API-Key':'GRSF9DEbUmJOruArM9kFcec89tSttiXadJLZiPXm',
+            },
+            
+        },
+        'save': {
+            method: 'POST',
+            headers: {
+               'X-Parse-Application-Id':'8k7LXICOqCkunJ8L4dVgfnRo4UtTNvhX10FeOwDy',
+               'X-Parse-REST-API-Key':'GRSF9DEbUmJOruArM9kFcec89tSttiXadJLZiPXm',
+               "Content-Type": "application/json"
+            }
+        }
+        
+    })
+    return ParseFactory
 }]);
 
 
