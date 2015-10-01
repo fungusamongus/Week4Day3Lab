@@ -6,7 +6,6 @@ app.controller('blog.controller.js', ['$scope','$location','ParseData', function
 		$location.path(view)
 	}
 	ParseData.getItems().then(function(data) {
-    $scope.items = data.results
 		for (var i = 0; i < data.results.length; i++) {
 			var post = {
 				author: data.results[i].author,

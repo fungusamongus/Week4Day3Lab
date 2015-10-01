@@ -1,12 +1,16 @@
 app.controller('post.controller.js', ['$scope','$location', 'ParseData', function ($scope, $location, ParseData) {
 	$scope.greeting = 'Yo!';
-	var post = {
+	
+	
+	$scope.post = function (view){
+		var post = {
 		author: $scope.author,
 		title: $scope.title,
 		content: $scope.content
-	}
-	$scope.post = function (view){
-		ParseData.postItems(post)
+		}
+		var jPost = JSON.stringify(post);
+		ParseData.postItems(jPost)
 		$location.path(view);
+		
 	}
 }]);
