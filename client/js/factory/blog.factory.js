@@ -17,7 +17,7 @@ app.factory('ParseData', ['$http', function($http) {
     }
     
     ParseFactory.postItems = function(data) {
-        $http.post('https://api.parse.com/1/classes/BlogPosts/', { 
+       return $http.post('https://api.parse.com/1/classes/BlogPosts/', { 
            headers: { 
                'X-Parse-Application-Id':'8k7LXICOqCkunJ8L4dVgfnRo4UtTNvhX10FeOwDy',
                'X-Parse-REST-API-Key':'GRSF9DEbUmJOruArM9kFcec89tSttiXadJLZiPXm'}
