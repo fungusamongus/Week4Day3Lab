@@ -27,27 +27,25 @@ app.factory('ParseData', ['$http','$resource', function($http, $resource) {
         })
     }
     return ParseFactory;*/
+    var headers = {
+            'X-Parse-Application-Id':'8k7LXICOqCkunJ8L4dVgfnRo4UtTNvhX10FeOwDy',
+            'X-Parse-REST-API-Key':'GRSF9DEbUmJOruArM9kFcec89tSttiXadJLZiPXm',
+            "Content-Type": "application/json"
+        }
     
-    var ParseFactory = $resource('https://api.parse.com/1/classes/BlogPosts',{},
+    var ParseFactory = $resource('https://api.parse.com/1/classes/BlogPosts/:id',{},
      {
         'query': {
-            headers: {
-               'X-Parse-Application-Id':'8k7LXICOqCkunJ8L4dVgfnRo4UtTNvhX10FeOwDy',
-               'X-Parse-REST-API-Key':'GRSF9DEbUmJOruArM9kFcec89tSttiXadJLZiPXm',
-            },
+            headers: headers
             
         },
         'save': {
             method: 'POST',
-            headers: {
-               'X-Parse-Application-Id':'8k7LXICOqCkunJ8L4dVgfnRo4UtTNvhX10FeOwDy',
-               'X-Parse-REST-API-Key':'GRSF9DEbUmJOruArM9kFcec89tSttiXadJLZiPXm',
-               "Content-Type": "application/json"
-            }
+            headers: headers
         }
         
     })
-    return ParseFactory
+    return ParseFactory;
 }]);
 
 

@@ -9,8 +9,7 @@ app.controller('post.controller.js', ['$scope','$location', 'ParseData', functio
 		title: $scope.title,
 		content: $scope.content
 		}
-		var jPost = JSON.stringify(post);
-		ParseData.save(jPost)
+		ParseData.save(post)
 		$location.path(view);
 		
 	

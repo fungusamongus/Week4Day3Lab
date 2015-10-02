@@ -10,6 +10,9 @@ app.controller('blog.controller.js', ['$scope','$location','ParseData', function
 		$scope.posts = data.results;
 		 
 	 })
+	 $scope.viewPost = function (view) {
+		 $location.path(view);
+	 }
 	 
 	/*ParseData.query().then(function(data) {
 
