@@ -8,26 +8,12 @@ app.controller('blog.controller.js', ['$scope','$location','ParseData', function
 	
 	ParseData.query().$promise.then(function (data){
 		$scope.posts = data.results;
-		 
+		 console.log(data.results[1].objectId)
 	 })
-	 $scope.viewPost = function (view) {
+	/* $scope.viewPost = function (view) {
 		 $location.path(view);
-	 }
+	 }*/
 	 
-	/*ParseData.query().then(function(data) {
-
-		for (var i = 0; i < data.results.length; i++) {
-			var post = {
-				author: data.results[i].author,
-				content: data.results[i].content,
-				title: data.results[i].title
-			}
-			$scope.posts.push(post)
-			
-		}
-		}).catch(function() {
-			alert('error');
-		});*/
 	
 	
 	}]);
